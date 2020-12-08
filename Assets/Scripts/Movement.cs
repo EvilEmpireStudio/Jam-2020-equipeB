@@ -21,6 +21,7 @@ public class Movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // GameManagement.re = 0;
         rb = GetComponent<Rigidbody>();
     }
     // public float forwardForce = 2000f;
