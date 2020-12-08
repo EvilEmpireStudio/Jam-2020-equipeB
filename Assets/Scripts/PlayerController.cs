@@ -120,14 +120,5 @@ public class PlayerController : MonoBehaviour
 
         motor.RotateCamera(_cameraRotationX);
 
-        if (Input.GetKey(KeyCode.Escape))
-        {
-            Application.Quit();
-        }
-    }
-    void OnApplicationQuit () {
-        PlayerPrefs.SetInt("Screenmanager Resolution Width", 800);
-        PlayerPrefs.SetInt("Screenmanager Resolution Height", 600);
-        PlayerPrefs.SetInt("Screenmanager Is Fullscreen mode", 0);
     }
  }

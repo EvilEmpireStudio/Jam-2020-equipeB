@@ -29,6 +29,17 @@ public class CameraFollow : MonoBehaviour
             Vector3 target_pos = follow_target.transform.position + follow_offset;
             transform.position = Vector3.SmoothDamp(transform.position, target_pos, ref current_vel, 1f / move_speed);
         }
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+    }
+
+    void OnApplicationQuit()
+    {
+        PlayerPrefs.SetInt("Screenmanager Resolution Width", 800);
+        PlayerPrefs.SetInt("Screenmanager Resolution Height", 600);
+        PlayerPrefs.SetInt("Screenmanager Is Fullscreen mode", 0);
     }
 
     public static CameraFollow Get()
