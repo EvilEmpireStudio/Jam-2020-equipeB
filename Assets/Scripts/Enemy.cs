@@ -259,7 +259,7 @@ public class Enemy : MonoBehaviour
             //Check if reached target
             Vector3 dist_vect = (targ - transform.position);
             dist_vect.y = 0f;
-            if (dist_vect.magnitude < 17f)
+            if (dist_vect.magnitude < 4f)
             {
                 waiting = true;
                 wait_timer = 0f;
