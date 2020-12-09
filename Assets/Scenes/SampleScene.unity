@@ -4740,7 +4740,7 @@ Camera:
     height: 1
   near clip plane: 0.01
   far clip plane: 1000
-  field of view: 40
+  field of view: 30
   orthographic: 0
   orthographic size: 16.85
   m_Depth: 0
@@ -11592,6 +11592,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4682079840596400321, guid: 9b7964bd54775ce4d92e5e9ec9f3b8f5,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: -8.509
+      objectReference: {fileID: 0}
     - target: {fileID: 4682079840596400323, guid: 9b7964bd54775ce4d92e5e9ec9f3b8f5,
         type: 3}
       propertyPath: m_Controller
@@ -11662,7 +11667,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4682079840596400351, guid: 9b7964bd54775ce4d92e5e9ec9f3b8f5, type: 3}
+    - {fileID: 4682079840596400323, guid: 9b7964bd54775ce4d92e5e9ec9f3b8f5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9b7964bd54775ce4d92e5e9ec9f3b8f5, type: 3}
 --- !u!1001 &6554900258888422194
 PrefabInstance:

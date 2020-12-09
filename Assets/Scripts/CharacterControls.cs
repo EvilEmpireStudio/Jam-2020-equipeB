@@ -23,6 +23,7 @@ public class CharacterControls : MonoBehaviour
     public bool victory = false;
     public KeyCode hide_key = KeyCode.LeftShift;
 
+    public float current_speed = 0.0f;
     private Vector3 current_move = Vector3.zero;
     private Vector3 current_face = Vector3.forward;
     private Rigidbody rigid;
@@ -74,6 +75,7 @@ public class CharacterControls : MonoBehaviour
         move_dir = move_dir.normalized * Mathf.Min(move_dir.magnitude, 1f);
         current_move = Vector3.MoveTowards(current_move, move_dir, move_accel * Time.fixedDeltaTime);
         rigid.velocity = current_move * move_speed;
+        current_speed = rigid.velocity.magnitude;
 
         bool grounded = CheckIfGrounded();
         if (!grounded)
@@ -136,11 +138,25 @@ public class CharacterControls : MonoBehaviour
 
         if (animator != null)
         {
-            Debug.Log("current_move.magnitude : " + current_move.magnitude );
+            Debug.Log("current_speed : " + current_speed );
 
             // animator.SetBool("Move", current_move.magnitude > 0.1f);
-            animator.SetBool("Run", current_move.magnitude > 0.1f);
-            animator.SetBool("Idle", current_move.magnitude < 0.1f);
+             if(current_speed > 5){
+                animator.SetBool("Move", false);
+                animator.SetBool("Run", true);
+                animator.SetBool("Idle", false);
+             }
+            else if(current_speed <= 5 && current_speed > 0){
+                animator.SetBool("Move", true);
+                animator.SetBool("Run", false);
+                animator.SetBool("Idle", false);
+            }
+            else{
+                animator.SetBool("Idle", true);
+                animator.SetBool("Move", false);
+                animator.SetBool("Run", false);
+            } 
+            
         }
     }
 
