@@ -29,11 +29,11 @@ public class EnemyDemo : MonoBehaviour
 
     void Update()
     {
-        if (animator != null)
-        {
-            animator.SetBool("Move", enemy.GetEnemy().GetMove().magnitude > 0.5f || enemy.GetEnemy().GetRotationVelocity() > 10f);
-            animator.SetBool("Run", enemy.GetEnemy().IsRunning());
-        }
+        // if (animator != null)
+        // {
+            // animator.SetBool("Move", enemy.GetEnemy().GetMove().magnitude > 0.5f || enemy.GetEnemy().GetRotationVelocity() > 10f);
+            // animator.SetBool("Run", enemy.GetEnemy().IsRunning());
+        // }
     }
 
     //Can be either because seen or heard noise
@@ -41,8 +41,13 @@ public class EnemyDemo : MonoBehaviour
     {
         if (exclama_prefab != null)
             Instantiate(exclama_prefab, transform.position + Vector3.up * 2f, Quaternion.identity);
-        if (animator != null)
+        if (animator != null){
             animator.SetTrigger("Surprised");
+            animator.SetBool("Idle", false);
+            animator.SetBool("Run", false);
+            animator.SetBool("Alert", true);
+        }
+            
     }
 
     private void OnSeen(VisionTarget target, int distance)
