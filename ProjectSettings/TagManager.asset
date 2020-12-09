@@ -9,6 +9,7 @@ TagManager:
   - npc
   - recipe
   - van
+  - level
   layers:
   - Default
   - TransparentFX

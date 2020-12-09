@@ -33,6 +33,7 @@ public class CharacterControls : MonoBehaviour
     private GameObject[] recipe;
     private GameObject[] van;
     private GameObject[] enemies;
+    private GameObject[] levels;
     private GameObject foundRecipe;
 
     void Awake()
@@ -43,6 +44,7 @@ public class CharacterControls : MonoBehaviour
         vision_target = GetComponent<VisionTarget>();
 
         enemies = GameObject.FindGameObjectsWithTag("npc");
+        levels = GameObject.FindGameObjectsWithTag("level");
         recipe = GameObject.FindGameObjectsWithTag("recipe");
         van = GameObject.FindGameObjectsWithTag("van");
         foundRecipe = null;
@@ -103,11 +105,12 @@ public class CharacterControls : MonoBehaviour
 
             Vector3 dist_vect = (van[0].transform.position - transform.position);
             dist_vect.y = 0f;
-            if (dist_vect.magnitude < 2f)
+            if (dist_vect.magnitude < 2f && victory == false)
             {
                 victory = true;
                 invisible = true;
                 Debug.Log("winning");
+                InvokeRepeating("startNextScene", 1.5f, 10f);
             }
             // foundRecipe.transform.position.y = transform.position.y + 2;
         }
@@ -124,6 +127,13 @@ public class CharacterControls : MonoBehaviour
              Vector3 dist_vect = (enemies[i].transform.position - transform.position);
              if(dist_vect.magnitude < 1.5f){
                   SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+             }
+        }
+        for(int i = 0; i < levels.Length; i++)
+        {
+             Vector3 dist_vect = (levels[i].transform.position - transform.position);
+             if(dist_vect.magnitude < 2.5f){
+                  SceneManager.LoadScene(levels[i].name);
              }
         }
         //Rotate
@@ -159,7 +169,9 @@ public class CharacterControls : MonoBehaviour
             
         }
     }
-
+    public void startNextScene(){
+        SceneManager.LoadScene("WorldMap");
+    }
     public bool CheckIfGrounded()
     {
         Vector3 origin = transform.position + Vector3.up * ground_dist * 0.5f;
