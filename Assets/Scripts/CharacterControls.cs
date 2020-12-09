@@ -19,6 +19,7 @@ public class CharacterControls : MonoBehaviour
 
     [Header("Hide")]
     public bool can_hide = true;
+    public bool victory = false;
     public KeyCode hide_key = KeyCode.LeftShift;
 
     private Vector3 current_move = Vector3.zero;
@@ -27,6 +28,10 @@ public class CharacterControls : MonoBehaviour
     private Animator animator;
     private Collider collide;
     private VisionTarget vision_target;
+    private GameObject[] recipe;
+    private GameObject[] van;
+    private GameObject[] enemies;
+    private GameObject foundRecipe;
 
     void Awake()
     {
@@ -34,6 +39,10 @@ public class CharacterControls : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
         collide = GetComponentInChildren<Collider>();
         vision_target = GetComponent<VisionTarget>();
+
+        enemies = GameObject.FindGameObjectsWithTag("npc");
+        recipe = GameObject.FindGameObjectsWithTag("recipe");
+        van = GameObject.FindGameObjectsWithTag("van");
     }
 
     void FixedUpdate()
@@ -69,6 +78,40 @@ public class CharacterControls : MonoBehaviour
         if (current_move.magnitude > 0.1f)
             current_face = new Vector3(current_move.x, 0f, current_move.z).normalized;
 
+        if(recipe.Length > 0 && foundRecipe == null && victory == false){
+            //Check if reached target
+            Vector3 dist_vect = (recipe[0].transform.position - transform.position);
+            dist_vect.y = 0f;
+            if (dist_vect.magnitude < 2f)
+            {
+                Debug.Log("found the recipe");
+                foundRecipe = recipe[0];
+            }
+        }
+        else if (foundRecipe != null && victory == false){
+
+            foundRecipe.transform.position = transform.position;
+            Vector3 p = foundRecipe.transform.position;
+            p.y = transform.position.y + 0.7f;
+            foundRecipe.transform.position = p;
+
+            Vector3 dist_vect = (van[0].transform.position - transform.position);
+            dist_vect.y = 0f;
+            if (dist_vect.magnitude < 2f)
+            {
+                victory = true;
+                invisible = true;
+                Debug.Log("winning");
+            }
+            // foundRecipe.transform.position.y = transform.position.y + 2;
+        }
+        if(victory){
+            Vector3 p = van[0].transform.position;
+            p.z ++;
+            van[0].transform.position = p;
+            foundRecipe.SetActive(false);
+            this.gameObject.SetActive(false);
+        }
         //Rotate
         Vector3 dir = current_face;
         dir.y = 0f;
