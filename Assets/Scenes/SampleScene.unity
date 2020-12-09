@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2138677392}
-  m_IndirectSpecularColor: {r: 0.14816462, g: 0.11337255, b: 0.10363758, a: 1}
+  m_IndirectSpecularColor: {r: 0.14816462, g: 0.11337255, b: 0.103637576, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5149,9 +5149,9 @@ GameObject:
   m_Component:
   - component: {fileID: 819996018}
   - component: {fileID: 819996017}
-  - component: {fileID: 819996016}
   - component: {fileID: 819996015}
   - component: {fileID: 819996019}
+  - component: {fileID: 819996016}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -5190,14 +5190,20 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
---- !u!81 &819996016
-AudioListener:
+--- !u!114 &819996016
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 819996014}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
+  ListenerNumber: -1
 --- !u!20 &819996017
 Camera:
   m_ObjectHideFlags: 0
@@ -6739,7 +6745,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1330015704}
   - component: {fileID: 1330015707}
-  - component: {fileID: 1330015706}
   - component: {fileID: 1330015705}
   m_Layer: 8
   m_Name: Camera
@@ -6793,14 +6798,6 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
---- !u!81 &1330015706
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1330015703}
-  m_Enabled: 1
 --- !u!20 &1330015707
 Camera:
   m_ObjectHideFlags: 0
@@ -9457,7 +9454,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1687258585}
   - component: {fileID: 1687258584}
-  - component: {fileID: 1687258582}
   - component: {fileID: 1687258583}
   - component: {fileID: 1687258586}
   m_Layer: 0
@@ -9467,14 +9463,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!81 &1687258582
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1687258581}
-  m_Enabled: 1
 --- !u!114 &1687258583
 MonoBehaviour:
   m_ObjectHideFlags: 0
