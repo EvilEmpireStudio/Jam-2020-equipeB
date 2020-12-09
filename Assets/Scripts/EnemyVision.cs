@@ -21,7 +21,7 @@ public class EnemyVision : MonoBehaviour
     public bool group_detect = false; //Group detect will make an enemy follow another enemy chasing even if didnt see player
 
     [Header("Alert")]
-    public float detect_time = 1f;
+    public float detect_time = 0.5f;
     public float alerted_time = 10f;
 
     [Header("Chase")]

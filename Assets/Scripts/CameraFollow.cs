@@ -9,7 +9,7 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    public float move_speed = 2f;
+    public float move_speed = 3f;
     public GameObject follow_target;
     public Vector3 follow_offset;
     

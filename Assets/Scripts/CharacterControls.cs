@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// move and control the player character
@@ -43,6 +44,9 @@ public class CharacterControls : MonoBehaviour
         enemies = GameObject.FindGameObjectsWithTag("npc");
         recipe = GameObject.FindGameObjectsWithTag("recipe");
         van = GameObject.FindGameObjectsWithTag("van");
+        foundRecipe = null;
+        victory = false;
+
     }
 
     void FixedUpdate()
@@ -112,6 +116,13 @@ public class CharacterControls : MonoBehaviour
             foundRecipe.SetActive(false);
             transform.position = van[0].transform.position;
             // this.gameObject.SetActive(false);
+        }
+        for(int i = 0; i < enemies.Length; i++)
+        {
+             Vector3 dist_vect = (enemies[i].transform.position - transform.position);
+             if(dist_vect.magnitude < 1.5f){
+                  SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+             }
         }
         //Rotate
         Vector3 dir = current_face;

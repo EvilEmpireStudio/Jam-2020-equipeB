@@ -43,7 +43,7 @@ public class Enemy : MonoBehaviour
     public GameObject[] patrol_path;
 
     [Header("Alert")]
-    public float alert_wait_time = 3f;
+    public float alert_wait_time = 1.5f;
     public float alert_walk_time = 10f;
 
     [Header("Follow")]
