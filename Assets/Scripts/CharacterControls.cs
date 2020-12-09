@@ -110,7 +110,8 @@ public class CharacterControls : MonoBehaviour
             p.z ++;
             van[0].transform.position = p;
             foundRecipe.SetActive(false);
-            this.gameObject.SetActive(false);
+            transform.position = van[0].transform.position;
+            // this.gameObject.SetActive(false);
         }
         //Rotate
         Vector3 dir = current_face;
@@ -124,9 +125,11 @@ public class CharacterControls : MonoBehaviour
 
         if (animator != null)
         {
-            animator.SetBool("Move", current_move.magnitude > 0.1f);
+            Debug.Log("current_move.magnitude : " + current_move.magnitude );
+
+            // animator.SetBool("Move", current_move.magnitude > 0.1f);
             animator.SetBool("Run", current_move.magnitude > 0.1f);
-            animator.SetBool("Hide", invisible);
+            animator.SetBool("Idle", current_move.magnitude < 0.1f);
         }
     }
 

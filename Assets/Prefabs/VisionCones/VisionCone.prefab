@@ -51,8 +51,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   show_two_levels: 1
-  cone_material: {fileID: 2100000, guid: 110a4a0af7721044faab94478d5ab05c, type: 2}
-  cone_far_material: {fileID: 2100000, guid: a45021f2647208144bce8fe9c98f25db, type: 2}
+  cone_material: {fileID: 2100000, guid: 8198c6ad225429e4795503e670ce87ed, type: 2}
+  cone_far_material: {fileID: 2100000, guid: cdc20bbcd32c79c4398d004880821343, type: 2}
   sort_order: 1
   precision: 60
   refresh_rate: 0
