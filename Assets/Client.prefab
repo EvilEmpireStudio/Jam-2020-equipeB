@@ -225,8 +225,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vision_angle: 30
-  vision_range: 10
-  vision_near_range: 5
+  vision_range: 3
+  vision_near_range: 2
   vision_height_above: 1
   vision_height_below: 10
   touch_range: 1

@@ -161,9 +161,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6f2d63352d3cc446b192c9fe08c735e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vision_angle: 110.48
-  vision_range: 13.3
-  vision_near_range: 5
+  vision_angle: 90
+  vision_range: 4
+  vision_near_range: 2
   vision_height_above: 1
   vision_height_below: 10
   touch_range: 1
