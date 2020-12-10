@@ -5049,9 +5049,10 @@ GameObject:
   m_Component:
   - component: {fileID: 819996018}
   - component: {fileID: 819996017}
-  - component: {fileID: 819996016}
   - component: {fileID: 819996015}
   - component: {fileID: 819996019}
+  - component: {fileID: 819996020}
+  - component: {fileID: 819996016}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -5090,14 +5091,29 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
---- !u!81 &819996016
-AudioListener:
+--- !u!114 &819996016
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 819996014}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Music/Sun Araw - Deep Cover
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!20 &819996017
 Camera:
   m_ObjectHideFlags: 0
@@ -5170,6 +5186,20 @@ MonoBehaviour:
   move_speed: 1
   follow_target: {fileID: 1546361294}
   follow_offset: {x: 5, y: 34, z: -16.74}
+--- !u!114 &819996020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819996014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
+  ListenerNumber: -1
 --- !u!1001 &852437697
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6961,7 +6991,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1687258585}
   - component: {fileID: 1687258584}
-  - component: {fileID: 1687258582}
   - component: {fileID: 1687258583}
   - component: {fileID: 1687258586}
   m_Layer: 0
@@ -6971,14 +7000,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!81 &1687258582
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1687258581}
-  m_Enabled: 1
 --- !u!114 &1687258583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8575,6 +8596,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 4682079840596400351, guid: 9b7964bd54775ce4d92e5e9ec9f3b8f5, type: 3}
     - {fileID: 4682079840596400323, guid: 9b7964bd54775ce4d92e5e9ec9f3b8f5, type: 3}
+    - {fileID: 4682079840913452234, guid: 9b7964bd54775ce4d92e5e9ec9f3b8f5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9b7964bd54775ce4d92e5e9ec9f3b8f5, type: 3}
 --- !u!1001 &5158913389973765712
 PrefabInstance:

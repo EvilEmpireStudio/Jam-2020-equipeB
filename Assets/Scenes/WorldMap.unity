@@ -309,7 +309,6 @@ GameObject:
   m_Component:
   - component: {fileID: 350636427}
   - component: {fileID: 350636426}
-  - component: {fileID: 350636425}
   - component: {fileID: 350636424}
   - component: {fileID: 350636428}
   m_Layer: 0
@@ -350,14 +349,6 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
---- !u!81 &350636425
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 350636423}
-  m_Enabled: 1
 --- !u!20 &350636426
 Camera:
   m_ObjectHideFlags: 0
@@ -533,8 +524,9 @@ GameObject:
   m_Component:
   - component: {fileID: 392132593}
   - component: {fileID: 392132592}
-  - component: {fileID: 392132591}
   - component: {fileID: 392132594}
+  - component: {fileID: 392132595}
+  - component: {fileID: 392132591}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -542,14 +534,29 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &392132591
-AudioListener:
+--- !u!114 &392132591
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 392132590}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Music/Scattle - It's Safe Now
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!20 &392132592
 Camera:
   m_ObjectHideFlags: 0
@@ -638,6 +645,20 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!114 &392132595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 392132590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
+  ListenerNumber: -1
 --- !u!1 &499638504
 GameObject:
   m_ObjectHideFlags: 0
@@ -811,6 +832,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 877593ec167a72c4ab036866e1df76f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed_normal: 7
+  speed_roll: 14
   move_speed: 15.31
   move_accel: 40
   rotate_speed: 150
