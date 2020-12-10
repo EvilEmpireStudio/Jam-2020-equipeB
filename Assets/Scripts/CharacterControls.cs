@@ -109,12 +109,15 @@ public class CharacterControls : MonoBehaviour
                 foundRecipe = recipe[0];
             }
         }
-        else if (foundRecipe != null && victory == false){
+        else if ((foundRecipe != null || SceneManager.GetActiveScene().name == "Home")  && victory == false){
 
-            foundRecipe.transform.position = transform.position;
-            Vector3 p = foundRecipe.transform.position;
-            p.y = transform.position.y + 0.7f;
-            foundRecipe.transform.position = p;
+            if(foundRecipe != null){
+                foundRecipe.transform.position = transform.position;
+                Vector3 p = foundRecipe.transform.position;
+                p.y = transform.position.y + 0.7f;
+                foundRecipe.transform.position = p;
+            }
+           
 
             Vector3 dist_vect = (van[0].transform.position - transform.position);
             dist_vect.y = 0f;
@@ -131,7 +134,7 @@ public class CharacterControls : MonoBehaviour
             Vector3 p = van[0].transform.position;
             p.z ++;
             van[0].transform.position = p;
-            foundRecipe.SetActive(false);
+            if(foundRecipe != null)foundRecipe.SetActive(false);
             transform.position = van[0].transform.position;
             // this.gameObject.SetActive(false);
         }
