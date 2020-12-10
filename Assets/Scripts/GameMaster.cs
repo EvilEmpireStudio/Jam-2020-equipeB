@@ -1,21 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class GameMaster : MonoBehaviour
+[CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/GameMaster", order = 1)]
+public class GameMaster : ScriptableObject
 {
-    public static MonoBehaviour instance;
-    public float re = 0.3f;
-    // Start is called before the first frame update
-    void Start()
-    {
-        DontDestroyOnLoad (transform.gameObject);
-        instance = this;
-    }
+    public string prefabName;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public int numberOfPrefabsToCreate;
+    public Vector3 latestPosInWorldMap;
 }

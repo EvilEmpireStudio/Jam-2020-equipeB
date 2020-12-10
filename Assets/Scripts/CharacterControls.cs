@@ -36,6 +36,8 @@ public class CharacterControls : MonoBehaviour
     private GameObject[] levels;
     private GameObject foundRecipe;
 
+    public GameMaster Master;
+
     void Awake()
     {
         rigid = GetComponent<Rigidbody>();
@@ -49,6 +51,13 @@ public class CharacterControls : MonoBehaviour
         van = GameObject.FindGameObjectsWithTag("van");
         foundRecipe = null;
         victory = false;
+
+        if(Master!=null && Master.latestPosInWorldMap != null ){
+
+            Vector3 p = Master.latestPosInWorldMap;
+            p.z -= 4;
+            transform.position = p;
+        }
 
     }
 
@@ -72,6 +81,10 @@ public class CharacterControls : MonoBehaviour
 
         if (invisible)
             move_dir = Vector3.zero;
+
+        if(Master != null && SceneManager.GetActiveScene().name == "WorldMap"){
+            Master.latestPosInWorldMap = transform.position;
+        }
 
         //Move
         move_dir = move_dir.normalized * Mathf.Min(move_dir.magnitude, 1f);
