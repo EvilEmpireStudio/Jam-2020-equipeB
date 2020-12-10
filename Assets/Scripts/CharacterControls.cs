@@ -97,7 +97,7 @@ public class CharacterControls : MonoBehaviour
         rigid.velocity = current_move * move_speed;
         current_speed = rigid.velocity.magnitude;
         timerRollInc --;
-        if(timerRollInc <= 175){
+        if(timerRollInc <= 175 && duringRoll){
             duringRoll = false;
             if(animator != null)
             {
@@ -112,7 +112,7 @@ public class CharacterControls : MonoBehaviour
             
 
 
-        if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.DownArrow) && timerRollInc <=0){
+        if (Input.GetKey(KeyCode.Space)  && timerRollInc <=0){
             move_dir += Vector3.back;
             timerRollInc = 200;
             duringRoll = true;
