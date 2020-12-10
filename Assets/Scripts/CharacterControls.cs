@@ -9,6 +9,8 @@ using UnityEngine.SceneManagement;
 
 public class CharacterControls : MonoBehaviour
 {
+    public float speed_normal = 7f;
+    public float speed_roll = 14f;
     public float move_speed = 7f;
     public float move_accel = 40f;
     public float rotate_speed = 150f;
@@ -95,12 +97,20 @@ public class CharacterControls : MonoBehaviour
         rigid.velocity = current_move * move_speed;
         current_speed = rigid.velocity.magnitude;
         timerRollInc --;
-        if(timerRollInc <= 350)
+        if(timerRollInc <= 175){
             duringRoll = false;
+            animator.SetBool("Roll", false);
+            animator.SetBool("Idle", false);
+            animator.SetBool("Move", false);
+            animator.SetBool("Run", false);
+            move_speed = speed_normal;
+        }
+            
+
 
         if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.DownArrow) && timerRollInc <=0){
             move_dir += Vector3.back;
-            timerRollInc = 400;
+            timerRollInc = 200;
             duringRoll = true;
             Roll();
         }
@@ -210,9 +220,10 @@ public class CharacterControls : MonoBehaviour
         animator.SetBool("Idle", false);
         animator.SetBool("Move", false);
         animator.SetBool("Run", false);
-        current_move = Vector3.MoveTowards(current_move, move_dir, move_accel*3 * Time.fixedDeltaTime);
-        rigid.velocity = current_move * move_speed;
-        current_speed = rigid.velocity.magnitude;
+        // current_move = Vector3.MoveTowards(current_move, move_dir, move_accel*3 * Time.fixedDeltaTime);
+        // rigid.velocity = current_move * move_speed;
+        // current_speed = rigid.velocity.magnitude;
+        move_speed = speed_roll;
     }
     public void startNextScene(){
         SceneManager.LoadScene("WorldMap");

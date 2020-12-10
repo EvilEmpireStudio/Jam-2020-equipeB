@@ -1457,7 +1457,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 418811095}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: f367fb430e2c58c408bd560c538e688a, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
@@ -4824,7 +4824,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9231d7eff5b36a44adf8213c1dfca8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  move_speed: 1
+  move_speed: 4
   follow_target: {fileID: 1546361294}
   follow_offset: {x: 5, y: 34, z: -16.74}
 --- !u!1 &831428773 stripped
@@ -11657,6 +11657,16 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: a7d760ea8ca3e2b41a9fe1a65ce0deb1, type: 2}
+    - target: {fileID: 4682079840596400324, guid: 9b7964bd54775ce4d92e5e9ec9f3b8f5,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4682079840596400325, guid: 9b7964bd54775ce4d92e5e9ec9f3b8f5,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4682079840596400325, guid: 9b7964bd54775ce4d92e5e9ec9f3b8f5,
         type: 3}
       propertyPath: m_CastShadows
@@ -11716,6 +11726,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4682079840596400329, guid: 9b7964bd54775ce4d92e5e9ec9f3b8f5,
+        type: 3}
+      propertyPath: speed_roll
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4682079840596400350, guid: 9b7964bd54775ce4d92e5e9ec9f3b8f5,
         type: 3}
