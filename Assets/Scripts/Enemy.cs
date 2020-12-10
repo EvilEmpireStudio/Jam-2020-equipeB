@@ -149,7 +149,7 @@ public class Enemy : MonoBehaviour
             if (nav_agent && nav_agent.enabled)
                 nav_agent.enabled = false;
 
-            current_move = Vector3.MoveTowards(current_move, move_vect, move_speed * 10f * Time.fixedDeltaTime);
+            current_move = Vector3.MoveTowards(current_move, move_vect, move_speed * 2f * Time.fixedDeltaTime);
             rigid.velocity = current_move;
         }
     }
