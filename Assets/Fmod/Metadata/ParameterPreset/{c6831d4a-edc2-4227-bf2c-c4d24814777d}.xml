@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="ParameterPreset" id="{c6831d4a-edc2-4227-bf2c-c4d24814777d}">
+		<property name="name">
+			<value>truck loop volume</value>
+		</property>
+		<relationship name="folder">
+			<destination>{a418e0de-c7d0-05c9-280a-b529dc02e12e}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{68496924-b72b-4deb-a9a7-63b553b56c8e}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{68496924-b72b-4deb-a9a7-63b553b56c8e}">
+		<property name="maximum">
+			<value>100</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
