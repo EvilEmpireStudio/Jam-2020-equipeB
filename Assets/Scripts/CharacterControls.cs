@@ -12,6 +12,7 @@ public class CharacterControls : MonoBehaviour
     public float move_speed = 7f;
     public float move_accel = 40f;
     public float rotate_speed = 150f;
+    private int timerRollInc = 400;
 
     [Header("Ground")]
     public float gravity = 2f;
@@ -21,11 +22,13 @@ public class CharacterControls : MonoBehaviour
     [Header("Hide")]
     public bool can_hide = true;
     public bool victory = false;
+    private bool duringRoll = false;
     public KeyCode hide_key = KeyCode.LeftShift;
 
     public float current_speed = 0.0f;
     private Vector3 current_move = Vector3.zero;
     private Vector3 current_face = Vector3.forward;
+    private Vector3 move_dir;
     private Rigidbody rigid;
     private Animator animator;
     private Collider collide;
@@ -63,7 +66,7 @@ public class CharacterControls : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector3 move_dir = Vector3.zero;
+        move_dir = Vector3.zero;
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
             move_dir += Vector3.forward;
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
@@ -91,6 +94,17 @@ public class CharacterControls : MonoBehaviour
         current_move = Vector3.MoveTowards(current_move, move_dir, move_accel * Time.fixedDeltaTime);
         rigid.velocity = current_move * move_speed;
         current_speed = rigid.velocity.magnitude;
+        timerRollInc --;
+        if(timerRollInc <= 350)
+            duringRoll = false;
+
+        if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.DownArrow) && timerRollInc <=0){
+            move_dir += Vector3.back;
+            timerRollInc = 400;
+            duringRoll = true;
+            Roll();
+        }
+            
 
         bool grounded = CheckIfGrounded();
         if (!grounded)
@@ -167,23 +181,38 @@ public class CharacterControls : MonoBehaviour
             Debug.Log("current_speed : " + current_speed );
 
             // animator.SetBool("Move", current_move.magnitude > 0.1f);
-             if(current_speed > 5){
-                animator.SetBool("Move", false);
-                animator.SetBool("Run", true);
-                animator.SetBool("Idle", false);
-             }
-            else if(current_speed <= 5 && current_speed > 0){
-                animator.SetBool("Move", true);
-                animator.SetBool("Run", false);
-                animator.SetBool("Idle", false);
+            if(duringRoll == false){
+                 if(current_speed > 5){
+                    animator.SetBool("Move", false);
+                    animator.SetBool("Run", true);
+                    animator.SetBool("Idle", false);
+                    animator.SetBool("Roll", false);
+                }
+                else if(current_speed <= 5 && current_speed > 0){
+                    animator.SetBool("Move", true);
+                    animator.SetBool("Run", false);
+                    animator.SetBool("Idle", false);
+                    animator.SetBool("Roll", false);
+                }
+                else{
+                    animator.SetBool("Idle", true);
+                    animator.SetBool("Move", false);
+                    animator.SetBool("Run", false);
+                    animator.SetBool("Roll", false);
+                } 
             }
-            else{
-                animator.SetBool("Idle", true);
-                animator.SetBool("Move", false);
-                animator.SetBool("Run", false);
-            } 
+            
             
         }
+    }
+    public void Roll(){
+        animator.SetBool("Roll", true);
+        animator.SetBool("Idle", false);
+        animator.SetBool("Move", false);
+        animator.SetBool("Run", false);
+        current_move = Vector3.MoveTowards(current_move, move_dir, move_accel*3 * Time.fixedDeltaTime);
+        rigid.velocity = current_move * move_speed;
+        current_speed = rigid.velocity.magnitude;
     }
     public void startNextScene(){
         SceneManager.LoadScene("WorldMap");

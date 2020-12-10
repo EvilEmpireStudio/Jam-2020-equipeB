@@ -21,7 +21,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Serveur
+  m_Name: cuisinier
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Move
@@ -242,7 +242,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 1827226128182048838, guid: 4e037fa043520474694ea05634176e7f,
+  m_Motion: {fileID: 1827226128182048838, guid: 9b8ac9f5f9d944d40bf9211dc3a1fae5,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -271,7 +271,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 1827226128182048838, guid: 7ad242afb2a0e0344b87e3480074e383,
+  m_Motion: {fileID: 1827226128182048838, guid: 151d1d5e27f0c844f9d89f7b1eab4107,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -300,7 +300,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 1827226128182048838, guid: 4e037fa043520474694ea05634176e7f,
+  m_Motion: {fileID: 1827226128182048838, guid: 9b8ac9f5f9d944d40bf9211dc3a1fae5,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -358,7 +358,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 1827226128182048838, guid: 432e6b203ccc7334db0ffc4c68e2fc14,
+  m_Motion: {fileID: 1827226128182048838, guid: 9b8ac9f5f9d944d40bf9211dc3a1fae5,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 

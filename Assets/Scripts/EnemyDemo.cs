@@ -14,6 +14,8 @@ public class EnemyDemo : MonoBehaviour
 
     private EnemyVision enemy;
     private Animator animator;
+    private int alertTimer = 0;
+    private bool alertBool = false;
     
     void Start()
     {
@@ -34,6 +36,23 @@ public class EnemyDemo : MonoBehaviour
             // animator.SetBool("Move", enemy.GetEnemy().GetMove().magnitude > 0.5f || enemy.GetEnemy().GetRotationVelocity() > 10f);
             // animator.SetBool("Run", enemy.GetEnemy().IsRunning());
         // }
+        alertTimer--;
+        if(alertTimer <= 0 && alertBool){
+            //  if(enemy.enemy.GetState() == 10){
+                animator.SetBool("Move", false);
+                animator.SetBool("Run", true);
+                animator.SetBool("Idle", false);
+                animator.SetBool("Alert", false);
+            // }
+            // else {
+            //     animator.SetBool("Move", true);
+            //     animator.SetBool("Run", false);
+            //     animator.SetBool("Idle", false);
+            //     animator.SetBool("Alert", false);
+            // }
+           
+        }
+       
     }
 
     //Can be either because seen or heard noise
@@ -46,6 +65,8 @@ public class EnemyDemo : MonoBehaviour
             animator.SetBool("Idle", false);
             animator.SetBool("Run", false);
             animator.SetBool("Alert", true);
+            alertTimer = 60;
+            alertBool = true;
         }
             
     }
