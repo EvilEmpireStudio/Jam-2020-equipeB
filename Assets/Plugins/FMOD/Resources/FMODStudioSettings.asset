@@ -323,6 +323,7 @@ MonoBehaviour:
   MasterBanks:
   - Master
   Banks:
+  - Bank A
   - Dialogue_CN
   - Dialogue_EN
   - Dialogue_JP
