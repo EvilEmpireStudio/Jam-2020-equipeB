@@ -97,7 +97,7 @@ public class CharacterControls : MonoBehaviour
         rigid.velocity = current_move * move_speed;
         current_speed = rigid.velocity.magnitude;
         timerRollInc --;
-        if(timerRollInc <= 175 && duringRoll){
+        if(timerRollInc <= 85 && duringRoll){
             duringRoll = false;
             if(animator != null)
             {
@@ -114,7 +114,7 @@ public class CharacterControls : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Space)  && timerRollInc <=0){
             move_dir += Vector3.back;
-            timerRollInc = 200;
+            timerRollInc = 100;
             duringRoll = true;
             Roll();
         }
@@ -142,7 +142,7 @@ public class CharacterControls : MonoBehaviour
             if(foundRecipe != null){
                 foundRecipe.transform.position = transform.position;
                 Vector3 p = foundRecipe.transform.position;
-                p.y = transform.position.y + 0.7f;
+                p.y = transform.position.y + 0.9f;
                 foundRecipe.transform.position = p;
             }
            

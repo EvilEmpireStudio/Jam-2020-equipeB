@@ -64,6 +64,7 @@ public class EnemyDemo : MonoBehaviour
             animator.SetTrigger("Surprised");
             animator.SetBool("Idle", false);
             animator.SetBool("Run", false);
+            animator.SetBool("Move", false);
             animator.SetBool("Alert", true);
             alertTimer = 60;
             alertBool = true;

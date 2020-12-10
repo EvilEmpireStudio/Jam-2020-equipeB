@@ -177,7 +177,7 @@ public class VisionCone : MonoBehaviour
             RaycastHit hit;
             Vector3 pos_world = transform.TransformPoint(Vector3.zero);
             Vector3 dir_world = transform.TransformDirection(dir.normalized);
-            bool ishit = Physics.Raycast(new Ray(pos_world, dir_world), out hit, range, obstacle_mask.value);
+            bool ishit = Physics.Raycast(new Ray(pos_world, dir_world), out hit, range);
             if (ishit)
                 dir = dir.normalized * hit.distance;
             Debug.DrawRay(pos_world, dir_world * (ishit ? hit.distance : range));
@@ -203,7 +203,7 @@ public class VisionCone : MonoBehaviour
             RaycastHit hit;
             Vector3 pos_world = transform.TransformPoint(Vector3.zero);
             Vector3 dir_world = transform.TransformDirection(dir.normalized);
-            bool ishit = Physics.Raycast(new Ray(pos_world, dir_world), out hit, range + offset, obstacle_mask.value);
+            bool ishit = Physics.Raycast(new Ray(pos_world, dir_world), out hit, range + offset);
 
             float tot_dist = ishit ? hit.distance : range + offset;
             Vector3 dir1 = dir.normalized * offset;
