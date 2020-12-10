@@ -321,6 +321,8 @@ MonoBehaviour:
   can_hide: 1
   victory: 0
   hide_key: 304
+  current_speed: 0
+  Master: {fileID: 0}
 --- !u!114 &4682079840596400328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -498,17 +500,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 0adf270babac3f44fbcc76960d544982,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.091412865
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0adf270babac3f44fbcc76960d544982,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.1111112
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0adf270babac3f44fbcc76960d544982,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.015165541
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0adf270babac3f44fbcc76960d544982,
         type: 3}
