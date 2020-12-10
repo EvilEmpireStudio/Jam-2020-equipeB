@@ -11,6 +11,8 @@
 /[Mm]emoryCaptures/
 
 /Assets\Fmod\.cache
+/Assets\Fmod\Metadata
+/Assets\LowPolyInterior
 /Assets\Plugin\FMOD\Cache
 fmod_editor.log
 /fmod_editor.log
