@@ -10,6 +10,14 @@
 /[Ll]ogs/
 /[Mm]emoryCaptures/
 
+/Assets\Fmod\.cache
+/Assets\Plugin\FMOD\Cache
+/fmod_editor.log
+/fmod_editor.log
+/Assets/Fmod/.cache
+/Assets/Plugin/FMOD/Cache
+
+
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
 
