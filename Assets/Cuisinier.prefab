@@ -237,7 +237,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c80d0c722922d45448926e4725cf15b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  exclama_prefab: {fileID: 0}
+  exclama_prefab: {fileID: 1567419056508196, guid: 825fb42fae477944f863f369848d7c19,
+    type: 3}
   death_fx_prefab: {fileID: 0}
 --- !u!1001 &4251140478425499958
 PrefabInstance:
