@@ -39,7 +39,7 @@ public class EnemyVision : MonoBehaviour
     public UnityAction<Vector3> onAlert;
     public UnityAction onDeath;
 
-    private Enemy enemy;
+    public Enemy enemy;
 
     private VisionTarget seen_character = null;
     private VisionCone vision;

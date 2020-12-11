@@ -11,6 +11,7 @@ public class CameraFollow : MonoBehaviour
 {
     public float move_speed = 3f;
     public GameObject follow_target;
+    public GameObject fadePlane;
     public Vector3 follow_offset;
     
     private Vector3 current_vel;
@@ -24,6 +25,13 @@ public class CameraFollow : MonoBehaviour
 
     void LateUpdate()
     {
+        // if(fadePlane.alpha >0){
+            Renderer r = fadePlane.GetComponent<Renderer>();
+            Color newColor = r.material.color;
+            newColor.a = newColor.a - 0.2f;
+            r.material.color = newColor;
+
+        // }
         if (follow_target != null)
         {
             Vector3 target_pos = follow_target.transform.position + follow_offset;
