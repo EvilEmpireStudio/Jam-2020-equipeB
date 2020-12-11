@@ -5,6 +5,6 @@ public class GameMaster : ScriptableObject
 {
     public string prefabName;
 
-    public int numberOfPrefabsToCreate;
+    public int numberOfPrefabsToCreate = 3;
     public Vector3 latestPosInWorldMap;
 }

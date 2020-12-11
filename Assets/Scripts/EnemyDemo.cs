@@ -73,14 +73,19 @@ public class EnemyDemo : MonoBehaviour
             Instantiate(exclama_prefab, transform.position + Vector3.up * 2f, Quaternion.identity);
         if (animator != null && isHitting == false){
             animator.SetTrigger("Surprised");
-            // animator.SetBool("Idle", false);
+            animator.SetBool("Idle", false);
             animator.SetBool("Run", false);
             animator.SetBool("Move", false);
             animator.SetBool("Alert", true);
             animator.SetBool("Hit", false);
             alertTimer = 60;
             alertBool = true;
-            animator.Play("Surprised", -1, 0f);
+            if(transform.name != "Client"){
+                animator.Play("Surprised", -1, 0f);
+            }else{
+                //  animator.Play("Alert", -1, 0f);
+            }
+           
         }
             
     }
