@@ -26,10 +26,10 @@ public class CameraFollow : MonoBehaviour
     void LateUpdate()
     {
         // if(fadePlane.alpha >0){
-            Renderer r = fadePlane.GetComponent<Renderer>();
-            Color newColor = r.material.color;
-            newColor.a = newColor.a - 0.2f;
-            r.material.color = newColor;
+            // Renderer r = fadePlane.GetComponent<Renderer>();
+            // Color newColor = r.material.color;
+            // newColor.a = newColor.a - 0.2f;
+            // r.material.color = newColor;
 
         // }
         if (follow_target != null)

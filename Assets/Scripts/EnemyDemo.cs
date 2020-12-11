@@ -43,6 +43,7 @@ public class EnemyDemo : MonoBehaviour
                 animator.SetBool("Run", true);
                 animator.SetBool("Idle", false);
                 animator.SetBool("Alert", false);
+                animator.SetBool("Hit", false);
             // }
             // else {
             //     animator.SetBool("Move", true);
@@ -66,10 +67,20 @@ public class EnemyDemo : MonoBehaviour
             animator.SetBool("Run", false);
             animator.SetBool("Move", false);
             animator.SetBool("Alert", true);
+            animator.SetBool("Hit", false);
             alertTimer = 60;
             alertBool = true;
         }
             
+    }
+    public void Hit(){
+        if (animator != null){
+            animator.SetBool("Move", false);
+            animator.SetBool("Run", false);
+            animator.SetBool("Idle", false);
+            animator.SetBool("Alert", false);
+            animator.SetBool("Hit", true);
+        }
     }
 
     private void OnSeen(VisionTarget target, int distance)

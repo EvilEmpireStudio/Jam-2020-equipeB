@@ -170,7 +170,9 @@ public class CharacterControls : MonoBehaviour
         {
              Vector3 dist_vect = (enemies[i].transform.position - transform.position);
              if(dist_vect.magnitude < 1.5f){
-                  SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                 enemies[i].GetComponent<EnemyDemo>().Hit();
+                 InvokeRepeating("startCurrentScene", 0.5f, 10f);
+                  
              }
         }
         for(int i = 0; i < levels.Length; i++)
@@ -231,6 +233,9 @@ public class CharacterControls : MonoBehaviour
             move_speed = speed_roll;
         }
         
+    }
+    public void startCurrentScene(){
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     public void startNextScene(){
         SceneManager.LoadScene("WorldMap");
