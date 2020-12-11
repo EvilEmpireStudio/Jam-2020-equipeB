@@ -16,16 +16,26 @@ public class EnemyDemo : MonoBehaviour
     private Animator animator;
     private int alertTimer = 0;
     private bool alertBool = false;
+    private bool isHitting = false;
     
-    void Start()
+    void Awake()
     {
         animator = GetComponentInChildren<Animator>();
+        if(animator != null){
+            animator.SetBool("Move", false);
+            animator.SetBool("Run", false);
+            animator.SetBool("Idle", true);
+            animator.SetBool("Alert", false);
+            animator.SetBool("Hit", false);
+            animator.Rebind();
+        }
         enemy = GetComponent<EnemyVision>();
         enemy.onDeath += OnDeath;
         enemy.onAlert += OnAlert;
         enemy.onSeeTarget += OnSeen;
         enemy.onDetectTarget += OnDetect;
         enemy.onTouchTarget += OnTouch;
+        isHitting = false;
         
     }
 
@@ -37,13 +47,13 @@ public class EnemyDemo : MonoBehaviour
             // animator.SetBool("Run", enemy.GetEnemy().IsRunning());
         // }
         alertTimer--;
-        if(alertTimer <= 0 && alertBool){
+        if(alertTimer <= 0 && alertBool && isHitting == false){
             //  if(enemy.enemy.GetState() == 10){
                 animator.SetBool("Move", false);
                 animator.SetBool("Run", true);
                 animator.SetBool("Idle", false);
                 animator.SetBool("Alert", false);
-                animator.SetBool("Hit", false);
+                // animator.SetBool("Hit", false);
             // }
             // else {
             //     animator.SetBool("Move", true);
@@ -61,7 +71,7 @@ public class EnemyDemo : MonoBehaviour
     {
         if (exclama_prefab != null)
             Instantiate(exclama_prefab, transform.position + Vector3.up * 2f, Quaternion.identity);
-        if (animator != null){
+        if (animator != null && isHitting == false){
             animator.SetTrigger("Surprised");
             animator.SetBool("Idle", false);
             animator.SetBool("Run", false);
@@ -70,16 +80,19 @@ public class EnemyDemo : MonoBehaviour
             animator.SetBool("Hit", false);
             alertTimer = 60;
             alertBool = true;
+            animator.Play("Surprised", -1, 0f);
         }
             
     }
     public void Hit(){
-        if (animator != null){
+        if (animator != null && isHitting == false){
+            isHitting = true;
             animator.SetBool("Move", false);
             animator.SetBool("Run", false);
             animator.SetBool("Idle", false);
             animator.SetBool("Alert", false);
             animator.SetBool("Hit", true);
+             animator.Play("Hit", -1, 0f);
         }
     }
 

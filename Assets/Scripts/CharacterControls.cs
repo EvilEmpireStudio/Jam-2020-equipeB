@@ -23,6 +23,7 @@ public class CharacterControls : MonoBehaviour
 
     [Header("Hide")]
     public bool can_hide = true;
+    public bool cantMove = false;
     public bool victory = false;
     private bool duringRoll = false;
     public KeyCode hide_key = KeyCode.LeftShift;
@@ -56,6 +57,7 @@ public class CharacterControls : MonoBehaviour
         van = GameObject.FindGameObjectsWithTag("van");
         foundRecipe = null;
         victory = false;
+        cantMove = false;
 
         if(Master!=null && Master.latestPosInWorldMap != null ){
 
@@ -68,6 +70,7 @@ public class CharacterControls : MonoBehaviour
 
     void FixedUpdate()
     {
+        if(cantMove)return;
         move_dir = Vector3.zero;
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
             move_dir += Vector3.forward;
@@ -170,6 +173,7 @@ public class CharacterControls : MonoBehaviour
         {
              Vector3 dist_vect = (enemies[i].transform.position - transform.position);
              if(dist_vect.magnitude < 1.5f){
+                 cantMove = true;
                  enemies[i].GetComponent<EnemyDemo>().Hit();
                  InvokeRepeating("startCurrentScene", 0.5f, 10f);
                   
