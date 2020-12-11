@@ -242,6 +242,7 @@ MonoBehaviour:
   vision_prefab: {fileID: 1882539123029776, guid: 57a6d564e20c50b42bc5c97761dde132,
     type: 3}
   death_fx_prefab: {fileID: 0}
+  enemy: {fileID: 0}
 --- !u!114 &6554900258214012214
 MonoBehaviour:
   m_ObjectHideFlags: 0
