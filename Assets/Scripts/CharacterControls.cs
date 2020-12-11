@@ -65,7 +65,7 @@ public class CharacterControls : MonoBehaviour
             p.z -= 4;
             transform.position = p;
         }
-
+       
     }
 
     void FixedUpdate()
@@ -81,7 +81,7 @@ public class CharacterControls : MonoBehaviour
         if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
             move_dir += Vector3.back;
 
-        bool invisible = can_hide && Input.GetKey(hide_key);
+        bool invisible = false;
         if (vision_target)
             vision_target.visible = !invisible;
         if (collide)
@@ -93,7 +93,6 @@ public class CharacterControls : MonoBehaviour
         if(Master != null && SceneManager.GetActiveScene().name == "WorldMap"){
             Master.latestPosInWorldMap = transform.position;
         }
-
         //Move
         move_dir = move_dir.normalized * Mathf.Min(move_dir.magnitude, 1f);
         current_move = Vector3.MoveTowards(current_move, move_dir, move_accel * Time.fixedDeltaTime);
