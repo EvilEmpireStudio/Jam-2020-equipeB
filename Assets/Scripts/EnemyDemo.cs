@@ -24,7 +24,7 @@ public class EnemyDemo : MonoBehaviour
         if(animator != null){
             animator.SetBool("Move", false);
             animator.SetBool("Run", false);
-            // animator.SetBool("Idle", true);
+            animator.SetBool("Idle", true);
             animator.SetBool("Alert", false);
             animator.SetBool("Hit", false);
             animator.Rebind();
@@ -51,9 +51,9 @@ public class EnemyDemo : MonoBehaviour
             //  if(enemy.enemy.GetState() == 10){
                 animator.SetBool("Move", false);
                 animator.SetBool("Run", true);
-                // animator.SetBool("Idle", false);
+                animator.SetBool("Idle", false);
                 animator.SetBool("Alert", false);
-                // animator.SetBool("Hit", false);
+                animator.SetBool("Hit", false);
             // }
             // else {
             //     animator.SetBool("Move", true);
@@ -72,7 +72,7 @@ public class EnemyDemo : MonoBehaviour
         if (exclama_prefab != null)
             Instantiate(exclama_prefab, transform.position + Vector3.up * 2f, Quaternion.identity);
         if (animator != null && isHitting == false){
-            animator.SetTrigger("Surprised");
+            // animator.SetTrigger("Surprised");
             animator.SetBool("Idle", false);
             animator.SetBool("Run", false);
             animator.SetBool("Move", false);
@@ -94,10 +94,10 @@ public class EnemyDemo : MonoBehaviour
             isHitting = true;
             animator.SetBool("Move", false);
             animator.SetBool("Run", false);
-            // animator.SetBool("Idle", false);
+            animator.SetBool("Idle", false);
             animator.SetBool("Alert", false);
             animator.SetBool("Hit", true);
-             animator.Play("Hit", -1, 0f);
+            //  animator.Play("Hit", -1, 0f);
         }
     }
 
