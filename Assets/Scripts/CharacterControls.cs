@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 using UnityEngine.SceneManagement;
 
 /// <summary>
@@ -36,10 +37,12 @@ public class CharacterControls : MonoBehaviour
     private Animator animator;
     private Collider collide;
     private VisionTarget vision_target;
+    private StudioEventEmitter fmodEmit;
     private GameObject[] recipe;
     private GameObject[] van;
     private GameObject[] enemies;
     private GameObject[] levels;
+    private GameObject cam;
     private GameObject foundRecipe;
 
     public GameMaster Master;
@@ -55,6 +58,13 @@ public class CharacterControls : MonoBehaviour
         levels = GameObject.FindGameObjectsWithTag("level");
         recipe = GameObject.FindGameObjectsWithTag("recipe");
         van = GameObject.FindGameObjectsWithTag("van");
+        cam = GameObject.Find("Camera");
+        if(cam!= null){
+            fmodEmit = cam.GetComponent<StudioEventEmitter>();
+            if(fmodEmit !=null){
+                fmodEmit.SetParameter("volumetrack2", 100.0f);
+            }
+        }
         foundRecipe = null;
         victory = false;
         cantMove = false;
@@ -136,10 +146,13 @@ public class CharacterControls : MonoBehaviour
             if (dist_vect.magnitude < 2f)
             {
                 Debug.Log("found the recipe");
+                
                 foundRecipe = recipe[0];
+                foundRecipe.SetActive(false);
+                foundRecipe.SetActive(true);
             }
         }
-        else if ((foundRecipe != null || SceneManager.GetActiveScene().name == "Home")  && victory == false){
+        if (victory == false && van != null && van.Length > 0){
 
             if(foundRecipe != null){
                 foundRecipe.transform.position = transform.position;
@@ -153,6 +166,8 @@ public class CharacterControls : MonoBehaviour
             dist_vect.y = 0f;
             if (dist_vect.magnitude < 2f && victory == false)
             {
+                van[0].SetActive(false);
+                van[0].SetActive(true);
                 victory = true;
                 invisible = true;
                 Debug.Log("winning");
@@ -160,9 +175,12 @@ public class CharacterControls : MonoBehaviour
             }
             // foundRecipe.transform.position.y = transform.position.y + 2;
         }
-        if(victory){
+        if(victory == true){
             Vector3 p = van[0].transform.position;
-            p.z ++;
+            if(SceneManager.GetActiveScene().name == "Restau_02")
+                p.x -= 0.5f;
+            else 
+                p.z += 0.5f;
             van[0].transform.position = p;
             if(foundRecipe != null)foundRecipe.SetActive(false);
             transform.position = van[0].transform.position;
@@ -174,6 +192,8 @@ public class CharacterControls : MonoBehaviour
              if(dist_vect.magnitude < 1.5f){
                  cantMove = true;
                  enemies[i].GetComponent<EnemyDemo>().Hit();
+                 gameObject.SetActive(false);
+                 gameObject.SetActive(true);
                  InvokeRepeating("startCurrentScene", 0.5f, 10f);
                   
              }
@@ -181,7 +201,7 @@ public class CharacterControls : MonoBehaviour
         for(int i = 0; i < levels.Length; i++)
         {
              Vector3 dist_vect = (levels[i].transform.position - transform.position);
-             if(dist_vect.magnitude < 2.5f){
+             if(dist_vect.magnitude < 3.5f){
                   SceneManager.LoadScene(levels[i].name);
              }
         }

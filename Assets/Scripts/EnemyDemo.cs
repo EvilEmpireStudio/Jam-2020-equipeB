@@ -54,6 +54,7 @@ public class EnemyDemo : MonoBehaviour
                 animator.SetBool("Idle", false);
                 animator.SetBool("Alert", false);
                 animator.SetBool("Hit", false);
+                // animator.Play("Run", -1, 0f);
             // }
             // else {
             //     animator.SetBool("Move", true);
@@ -78,10 +79,10 @@ public class EnemyDemo : MonoBehaviour
             animator.SetBool("Move", false);
             animator.SetBool("Alert", true);
             animator.SetBool("Hit", false);
-            alertTimer = 60;
+            alertTimer = 15;
             alertBool = true;
             if(transform.name != "Client"){
-                animator.Play("Surprised", -1, 0f);
+                // animator.Play("Surprised", -1, 0f);
             }else{
                 //  animator.Play("Alert", -1, 0f);
             }

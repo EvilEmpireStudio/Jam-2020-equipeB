@@ -44,9 +44,9 @@ GameObject:
   - component: {fileID: 4682079840596400324}
   - component: {fileID: 4682079840596400322}
   - component: {fileID: 4682079840596400321}
-  - component: {fileID: 4682079840596400320}
   - component: {fileID: 4682079840596400329}
   - component: {fileID: 4682079840596400328}
+  - component: {fileID: 5751735965087309623}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -242,22 +242,6 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &4682079840596400320
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4682079840596400350}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ee2c59e05e9aa342b46d2d5eedcf41d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 4682079840596400322}
-  cam: {fileID: 4682079840913452235}
-  jumpForce: 0
-  cameraRotationLimit: 85
 --- !u!114 &4682079840596400329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,6 +283,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visible: 1
+--- !u!114 &5751735965087309623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4682079840596400350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/GP/character_hit
+  PlayEvent: 11
+  StopEvent: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &4682079840913452231
 GameObject:
   m_ObjectHideFlags: 0

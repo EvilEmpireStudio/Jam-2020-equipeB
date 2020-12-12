@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2138677392}
-  m_IndirectSpecularColor: {r: 0.14816462, g: 0.11337255, b: 0.103637576, a: 1}
+  m_IndirectSpecularColor: {r: 0.14816462, g: 0.11337255, b: 0.10363758, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2807,7 +2807,7 @@ Rigidbody:
   m_Drag: 5
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -3010,7 +3010,7 @@ Rigidbody:
   m_Drag: 5
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -29082,6 +29082,33 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 327800346}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &328075951 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5276441988023442614, guid: c656c732cd8f8194bb65f5572fc7c34a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1652899851}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &328075952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328075951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 744a208c85da6d04c861d81b992e4ead, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Emitters:
+  - Target: {fileID: 819996021}
+    Params: []
+  - Target: {fileID: 819996020}
+    Params:
+    - Name: volume track 2
+      Value: 100
+  TriggerEvent: 12
 --- !u!1001 &329592008
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34303,7 +34330,7 @@ PrefabInstance:
     - target: {fileID: 4682079840596400321, guid: 9b7964bd54775ce4d92e5e9ec9f3b8f5,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: -45.03978
+      value: -30.340786
       objectReference: {fileID: 0}
     - target: {fileID: 4682079840596400321, guid: 9b7964bd54775ce4d92e5e9ec9f3b8f5,
         type: 3}
@@ -34313,7 +34340,7 @@ PrefabInstance:
     - target: {fileID: 4682079840596400321, guid: 9b7964bd54775ce4d92e5e9ec9f3b8f5,
         type: 3}
       propertyPath: m_ConnectedAnchor.z
-      value: -20.900845
+      value: -44.27634
       objectReference: {fileID: 0}
     - target: {fileID: 4682079840596400327, guid: 9b7964bd54775ce4d92e5e9ec9f3b8f5,
         type: 3}
@@ -34905,6 +34932,35 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &471415092 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9082351058331390580, guid: c656c732cd8f8194bb65f5572fc7c34a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1652899851}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &471415096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 471415092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: Untagged
+  Event: event:/UI/win_recipe
+  PlayEvent: 3
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!1001 &473562344
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -50278,6 +50334,7 @@ GameObject:
   - component: {fileID: 819996019}
   - component: {fileID: 819996016}
   - component: {fileID: 819996020}
+  - component: {fileID: 819996021}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -50422,10 +50479,41 @@ MonoBehaviour:
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
-  Params: []
+  Params:
+  - Name: volume track 3
+    Value: 0
+  - Name: volume track 2
+    Value: 0
+  - Name: Filter
+    Value: 0
   OverrideAttenuation: 0
   OverrideMinDistance: 0
   OverrideMaxDistance: 0
+--- !u!114 &819996021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819996014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Ambience/resto
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params:
+  - Name: volume ambience
+    Value: 0.578
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 500
 --- !u!1 &823261739
 GameObject:
   m_ObjectHideFlags: 0
@@ -50926,7 +51014,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cdaa4110a0c74a4488614f35b9e69a45, type: 2}
+  - {fileID: 2100000, guid: de94c4479c3696b499d5a213c1dc819e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -52221,10 +52309,45 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4451764383784336496, guid: 1119f8c6a0c1b0e4f85f4ea147dab164,
+        type: 3}
+      propertyPath: attenuationObject
+      value: 
+      objectReference: {fileID: 935885580}
+    - target: {fileID: -508505766507457331, guid: 1119f8c6a0c1b0e4f85f4ea147dab164,
+        type: 3}
+      propertyPath: Event
+      value: event:/Vehicles/Ride-on Mower
+      objectReference: {fileID: 0}
+    - target: {fileID: -508505766507457331, guid: 1119f8c6a0c1b0e4f85f4ea147dab164,
+        type: 3}
+      propertyPath: Preload
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -508505766507457331, guid: 1119f8c6a0c1b0e4f85f4ea147dab164,
+        type: 3}
+      propertyPath: TriggerOnce
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -508505766507457331, guid: 1119f8c6a0c1b0e4f85f4ea147dab164,
+        type: 3}
+      propertyPath: OverrideAttenuation
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -508505766507457331, guid: 1119f8c6a0c1b0e4f85f4ea147dab164,
+        type: 3}
+      propertyPath: Params.Array.data[0].Value
+      value: 1131
+      objectReference: {fileID: 0}
     - target: {fileID: 5158913390676463073, guid: 1119f8c6a0c1b0e4f85f4ea147dab164,
         type: 3}
       propertyPath: m_Name
       value: Van
+      objectReference: {fileID: 0}
+    - target: {fileID: 5158913390676463074, guid: 1119f8c6a0c1b0e4f85f4ea147dab164,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5158913390676463077, guid: 1119f8c6a0c1b0e4f85f4ea147dab164,
         type: 3}
@@ -52234,7 +52357,7 @@ PrefabInstance:
     - target: {fileID: 5158913390676463077, guid: 1119f8c6a0c1b0e4f85f4ea147dab164,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -38.192123
+      value: -28.54
       objectReference: {fileID: 0}
     - target: {fileID: 5158913390676463077, guid: 1119f8c6a0c1b0e4f85f4ea147dab164,
         type: 3}
@@ -52244,7 +52367,7 @@ PrefabInstance:
     - target: {fileID: 5158913390676463077, guid: 1119f8c6a0c1b0e4f85f4ea147dab164,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -46.614647
+      value: -46.62
       objectReference: {fileID: 0}
     - target: {fileID: 5158913390676463077, guid: 1119f8c6a0c1b0e4f85f4ea147dab164,
         type: 3}
@@ -52281,7 +52404,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -4451764383784336496, guid: 1119f8c6a0c1b0e4f85f4ea147dab164, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1119f8c6a0c1b0e4f85f4ea147dab164, type: 3}
 --- !u!1 &873810556 stripped
 GameObject:
@@ -59441,7 +59565,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cdaa4110a0c74a4488614f35b9e69a45, type: 2}
+  - {fileID: 2100000, guid: e23be1df00325d840a87b62d43952339, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -93787,6 +93911,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1781902920443418093, guid: c656c732cd8f8194bb65f5572fc7c34a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5276441988023442506, guid: c656c732cd8f8194bb65f5572fc7c34a,
         type: 3}
       propertyPath: m_RootOrder
@@ -93842,12 +93971,23 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5276441988023442612, guid: c656c732cd8f8194bb65f5572fc7c34a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5276441988023442613, guid: c656c732cd8f8194bb65f5572fc7c34a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5276441988023442614, guid: c656c732cd8f8194bb65f5572fc7c34a,
         type: 3}
       propertyPath: m_Name
       value: Recipe
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6360081968871492740, guid: c656c732cd8f8194bb65f5572fc7c34a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c656c732cd8f8194bb65f5572fc7c34a, type: 3}
 --- !u!1001 &1657338753
 PrefabInstance:
@@ -95073,7 +95213,7 @@ Rigidbody:
   m_Drag: 5
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -96923,7 +97063,7 @@ Rigidbody:
   m_Drag: 5
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -98859,7 +98999,7 @@ Rigidbody:
   m_Drag: 5
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -109499,7 +109639,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cdaa4110a0c74a4488614f35b9e69a45, type: 2}
+  - {fileID: 2100000, guid: de94c4479c3696b499d5a213c1dc819e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
