@@ -63,10 +63,10 @@ public class CharacterControls : MonoBehaviour
         cam = GameObject.Find("Camera");
         camFps = GameObject.Find("CameraFps");
         if(cam!= null){
-            fmodEmit = cam.GetComponent<StudioEventEmitter>();
-            if(fmodEmit !=null){
-                fmodEmit.SetParameter("volumetrack2", 100.0f);
-            }
+            // fmodEmit = cam.GetComponent<StudioEventEmitter>();
+            // if(fmodEmit !=null){
+            //     fmodEmit.SetParameter("volumetrack2", 100.0f);
+            // }
         }
         foundRecipe = null;
         victory = false;
