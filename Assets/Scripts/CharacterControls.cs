@@ -26,6 +26,7 @@ public class CharacterControls : MonoBehaviour
     public bool can_hide = true;
     public bool cantMove = false;
     public bool victory = false;
+    public bool modeFps = false;
     private bool duringRoll = false;
     public KeyCode hide_key = KeyCode.LeftShift;
 
@@ -43,6 +44,7 @@ public class CharacterControls : MonoBehaviour
     private GameObject[] enemies;
     private GameObject[] levels;
     private GameObject cam;
+    private GameObject camFps;
     private GameObject foundRecipe;
 
     public GameMaster Master;
@@ -59,6 +61,7 @@ public class CharacterControls : MonoBehaviour
         recipe = GameObject.FindGameObjectsWithTag("recipe");
         van = GameObject.FindGameObjectsWithTag("van");
         cam = GameObject.Find("Camera");
+        camFps = GameObject.Find("CameraFps");
         if(cam!= null){
             fmodEmit = cam.GetComponent<StudioEventEmitter>();
             if(fmodEmit !=null){
@@ -82,14 +85,26 @@ public class CharacterControls : MonoBehaviour
     {
         if(cantMove)return;
         move_dir = Vector3.zero;
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.Tab))
+            modeFps = !modeFps;
+        
+        if(modeFps){
+            cam.SetActive(false);
+            camFps.SetActive(true);
+        }
+        else{
+             cam.SetActive(true);
+             if(camFps != null)camFps.SetActive(false);
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
             move_dir += Vector3.forward;
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
-            move_dir += Vector3.left;
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
-            move_dir += Vector3.right;
-        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
-            move_dir += Vector3.back;
+            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+                move_dir += Vector3.left;
+            if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+                move_dir += Vector3.right;
+            if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+                move_dir += Vector3.back;
+        }
+        
 
         bool invisible = false;
         if (vision_target)
@@ -103,12 +118,19 @@ public class CharacterControls : MonoBehaviour
         if(Master != null && SceneManager.GetActiveScene().name == "WorldMap"){
             Master.latestPosInWorldMap = transform.position;
         }
+        if(!modeFps){
+             move_dir = move_dir.normalized * Mathf.Min(move_dir.magnitude, 1f);
+            current_move = Vector3.MoveTowards(current_move, move_dir, move_accel * Time.fixedDeltaTime);
+            rigid.velocity = current_move * move_speed;
+            current_speed = rigid.velocity.magnitude;
+            timerRollInc --;
+
+            if (current_move.magnitude > 0.1f)
+            current_face = new Vector3(current_move.x, 0f, current_move.z).normalized;
+        }
         //Move
-        move_dir = move_dir.normalized * Mathf.Min(move_dir.magnitude, 1f);
-        current_move = Vector3.MoveTowards(current_move, move_dir, move_accel * Time.fixedDeltaTime);
-        rigid.velocity = current_move * move_speed;
-        current_speed = rigid.velocity.magnitude;
-        timerRollInc --;
+       
+
         if(timerRollInc <= 85 && duringRoll){
             duringRoll = false;
             if(animator != null)
@@ -125,7 +147,7 @@ public class CharacterControls : MonoBehaviour
 
 
         if (Input.GetKey(KeyCode.Space)  && timerRollInc <=0){
-            move_dir += Vector3.back;
+            // move_dir += Vector3.back;
             timerRollInc = 100;
             duringRoll = true;
             Roll();
@@ -136,8 +158,7 @@ public class CharacterControls : MonoBehaviour
         if (!grounded)
             rigid.velocity += Vector3.down * gravity;
 
-        if (current_move.magnitude > 0.1f)
-            current_face = new Vector3(current_move.x, 0f, current_move.z).normalized;
+        
 
         if(recipe.Length > 0 && foundRecipe == null && victory == false){
             //Check if reached target
@@ -205,15 +226,18 @@ public class CharacterControls : MonoBehaviour
                   SceneManager.LoadScene(levels[i].name);
              }
         }
-        //Rotate
-        Vector3 dir = current_face;
-        dir.y = 0f;
-        if (dir.magnitude > 0.1f)
-        {
-            Quaternion target = Quaternion.LookRotation(dir.normalized, Vector3.up);
-            Quaternion reachedRotation = Quaternion.RotateTowards(transform.rotation, target, rotate_speed * Time.deltaTime);
-            transform.rotation = reachedRotation;
+        if(modeFps == false){
+            //Rotate
+            Vector3 dir = current_face;
+            dir.y = 0f;
+            if (dir.magnitude > 0.1f)
+            {
+                Quaternion target = Quaternion.LookRotation(dir.normalized, Vector3.up);
+                Quaternion reachedRotation = Quaternion.RotateTowards(transform.rotation, target, rotate_speed * Time.deltaTime);
+                transform.rotation = reachedRotation;
+            }
         }
+        
 
         if (animator != null)
         {

@@ -15,7 +15,10 @@ public class OnClick : MonoBehaviour
             {
                 if(hit.transform.name == "Play"){
                     SceneManager.LoadScene("Home");
-                }else if(hit.transform.name == "Credits"){
+                }else if(hit.transform.name == "Back"){
+                    SceneManager.LoadScene("titre");
+                }
+                else if(hit.transform.name == "Credits"){
                     SceneManager.LoadScene("Credits");
                 }
                 else if(hit.transform.name == "Exit"){

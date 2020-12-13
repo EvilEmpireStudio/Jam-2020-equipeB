@@ -6,7 +6,7 @@ public class Movement : MonoBehaviour
 {
     public Rigidbody rb;
     [SerializeField]
-    private Camera cam;
+    private GameObject cam;
 
     public float jumpForce;
 
@@ -23,6 +23,7 @@ public class Movement : MonoBehaviour
     {
         // GameManagement.re = 0;
         rb = GetComponent<Rigidbody>();
+        cam = GameObject.Find("CameraFps");
     }
     // public float forwardForce = 2000f;
     // public float sideForce = 100;
@@ -48,6 +49,7 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
      private void FixedUpdate()
     {
+        if(gameObject.GetComponent<CharacterControls>().modeFps == false) return;
         PerformMovement();
         PerformRotation();
     }

@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4682079839361801193}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.82, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4682079840596400327}
@@ -47,6 +47,8 @@ GameObject:
   - component: {fileID: 4682079840596400329}
   - component: {fileID: 4682079840596400328}
   - component: {fileID: 5751735965087309623}
+  - component: {fileID: 4784830871460771846}
+  - component: {fileID: 55522872951623717}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -140,8 +142,8 @@ Rigidbody:
   m_GameObject: {fileID: 4682079840596400350}
   serializedVersion: 2
   m_Mass: 3
-  m_Drag: 0
-  m_AngularDrag: 0
+  m_Drag: 10
+  m_AngularDrag: 10
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -267,6 +269,7 @@ MonoBehaviour:
   can_hide: 1
   cantMove: 0
   victory: 0
+  modeFps: 0
   hide_key: 304
   current_speed: 0
   Master: {fileID: 0}
@@ -306,6 +309,41 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
+--- !u!114 &4784830871460771846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4682079840596400350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ee2c59e05e9aa342b46d2d5eedcf41d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 4682079840596400322}
+  cam: {fileID: 4682079840913452235}
+  jumpForce: 0
+  cameraRotationLimit: 85
+--- !u!114 &55522872951623717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4682079840596400350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47ea1c157257cf54f947758a77a2eee5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  gravity: 2
+  lookSensitivityX: 3
+  lookSensitivityY: 3
+  readyToJump: 1
+  grounded: 1
+  jumping: 0
 --- !u!1 &4682079840913452231
 GameObject:
   m_ObjectHideFlags: 0
@@ -319,12 +357,12 @@ GameObject:
   - component: {fileID: 4682079840913452234}
   - component: {fileID: 4682079840913452233}
   m_Layer: 8
-  m_Name: Camera
+  m_Name: CameraFps
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4682079840913452232
 Transform:
   m_ObjectHideFlags: 0
@@ -333,7 +371,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4682079840913452231}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.3, z: 0.5}
+  m_LocalPosition: {x: 0, y: 0.76, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4682079840596400327}
